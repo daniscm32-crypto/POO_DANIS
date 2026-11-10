@@ -1,8 +1,10 @@
-package esfot;
+
+package persona;
 
 import java.util.Objects;
 
 public class Persona {
+
     protected String nombre;
     protected int edad;
     protected float estatura;
@@ -44,8 +46,6 @@ public class Persona {
         this.estatura = estatura;
     }
 
-    // MÉTODOS PERSONALIZADOS
-
     @Override
     public String toString() {
         return "Persona{" +
@@ -55,12 +55,13 @@ public class Persona {
                 '}';
     }
 
-    // Dos personas son iguales si tienen el mismo nombre, edad y estatura
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Persona p = (Persona) o;
+
         return edad == p.edad
                 && Float.compare(estatura, p.estatura) == 0
                 && Objects.equals(nombre, p.nombre);
@@ -72,7 +73,7 @@ public class Persona {
     }
 
     public Persona copiar() {
-        return new Persona(nombre);
+        return new Persona(nombre, edad, estatura);
     }
 
     public void imprimirDatos() {
@@ -81,4 +82,3 @@ public class Persona {
         System.out.println("Estatura: " + estatura);
     }
 }
- 
